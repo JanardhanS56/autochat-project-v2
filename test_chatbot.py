@@ -1,7 +1,13 @@
 # Rollback: delete test_chatbot.py if unit test suite is not desired
 """Unit tests for AutoChat chatbot."""
 
+# Rollback: remove sys.path.insert in test_chatbot.py
+import os
+import sys
 import unittest
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from ChatBot import AutoChat
 from Chat_response import CREATOR_NAME, RESPONSES
 
