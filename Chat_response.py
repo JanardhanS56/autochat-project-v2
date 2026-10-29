@@ -1,5 +1,5 @@
 # Rollback: revert CREATOR_NAME to "Your Name" and hardcode creator strings
-CREATOR_NAME = "Pavan_p_pureppanavar"
+CREATOR_NAME = "Jana"
 
 RESPONSES = {
 
