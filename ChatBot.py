@@ -13,10 +13,11 @@ class AutoChat:
         self.exit_keywords = self.responses.get("bye", {}).get("keywords", ["bye", "exit", "quit"])
 
     def clean_input(self, user_input):
+        # Rollback: revert apostrophe stripping order to after punctuation replacement
         text = user_input.lower()
-        text = re.sub(r"[^a-z0-9\s]", " ", text) 
-        text = re.sub(r"\s+", " ", text).strip() 
-        text = re.sub(r"'", "", text)            
+        text = re.sub(r"['\u2019]", "", text)
+        text = re.sub(r"[^a-z0-9\s]", " ", text)
+        text = re.sub(r"\s+", " ", text).strip()
         return text
 
     def _contains_word(self, text, keyword):
